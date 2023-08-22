@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from "styled-components"
 
-const StartGame = () => {
+const StartGame = ({toggle}) => {
   return (
     <>
     <Container >
         <div><img src='./images/dices1.png' alt='dices1.png'/></div>
-        <div className='maintext'>
+        <div className='content'>
             <h1>DICE GAME</h1>
-            <Button>Play Now</Button>
+            <Button onClick={toggle}>Play Now</Button>
         </div>
     </Container>
         
@@ -21,6 +21,15 @@ export default StartGame
 const Container = styled.div`
     max-width: 1180px;
     display: flex;
+    margin: 0 auto;
+    height: 100vh;
+    align-items: center;
+
+    .content h1{
+        font-size: 96px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
 `;
 
 const Button = styled.button`
@@ -29,4 +38,14 @@ const Button = styled.button`
     background: #000;
     color: #fff;
     font-size: 16px;
+    min-width: 220px;
+    border: 1px solid transparent;
+    transition: all 0.4s ease-in;
+
+    &:hover{
+        background-color: #ffffff;
+        border: 1px solid #000;
+        color: #000;
+        cursor: pointer;
+    }
 `;
