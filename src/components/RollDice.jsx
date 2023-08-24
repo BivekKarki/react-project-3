@@ -3,16 +3,21 @@ import styled from 'styled-components'
 
 const RollDice = () => {
 
-    const [currentDice, setCurrentDice] = useState();
+    const [currentDice, setCurrentDice] = useState(1);
     const generateRandomNumber = (min, max)=> {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
+    const roleDice = ()=> {
+        const randomNumber = generateRandomNumber(1,7);
+        setCurrentDice((prev)=> randomNumber);
+
+    }
   return (
     <>
         <DiceContainer>
-            <div className='dice' onClick={()=> generateRandomNumber(1,6)}>
-                <img src='./images/dice/dice_1.png' alt='dice_1' />
+            <div className='dice' onClick={roleDice}>
+                <img src={`/images/dice/dice_${currentDice}.png`} alt='dice_1' />
             </div>
             <p>Click on Dice to roll</p>
         </DiceContainer>
