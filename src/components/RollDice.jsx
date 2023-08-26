@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 
-const RollDice = ({currentDice, setCurrentDice}) => {
+const RollDice = ({currentDice, roleDice}) => {
 
   return (
     <>
