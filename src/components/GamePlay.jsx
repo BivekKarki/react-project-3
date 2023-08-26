@@ -3,6 +3,7 @@ import TotalScore from './TotalScore'
 import NumberSelector from './NumberSelector'
 import { styled } from 'styled-components'
 import RollDice from './RollDice'
+import { Button, OutlineButton } from '../styled/Button'
 
 const GamePlay = () => {
     const  [score, setScore] = useState(0);
@@ -33,6 +34,9 @@ const GamePlay = () => {
         setSelectedNumber(undefined);
         
     }
+    const resetScore = ()=> {
+        setScore(0);
+    }
 
 
   return (
@@ -47,6 +51,11 @@ const GamePlay = () => {
                 setSelectedNumber={setSelectedNumber}/>
             </div>
             <RollDice currentDice={currentDice} roleDice={roleDice}/>
+            <div className='btns'>
+                <OutlineButton onClick={resetScore}>Reset</OutlineButton>
+                <Button>Show Rules</Button>
+
+            </div>
         </MainContainer>
     </>
   )
@@ -62,5 +71,14 @@ margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: end;
+    }
+    .btns{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* max-width: 220px; */
+        align-items: center;
+        gap: 15px;
     }
 `;
